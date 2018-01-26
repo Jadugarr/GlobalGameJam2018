@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b94a4560e36f9e4e8dc4c026d0b9b64, type: 3}
+  m_Name: PositioningConfiguration
+  m_EditorClassIdentifier: 
+  RoomDatas:
+  - ObjectsToSpawn:
+    - ObjectType: 0
+      GameObjectToSpawn: {fileID: 1663598569824990, guid: cd8b233b3e8929a4eae09e6ecce25f64,
+        type: 2}
+      PossibleObjectPositions:
+      - Position: {x: -11.75, y: 1.66, z: -15.93}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 6.05, y: 1.66, z: -15.93}
+        Rotation: {x: 0, y: 81.911, z: -50.557, w: 1}
+      - Position: {x: 12.21, y: 4.44, z: 8.48}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 17.62, y: 4.44, z: 8.48}
+        Rotation: {x: -42.739, y: 62.942, z: 19.12, w: 1}
+    - ObjectType: 0
+      GameObjectToSpawn: {fileID: 1663598569824990, guid: cd8b233b3e8929a4eae09e6ecce25f64,
+        type: 2}
+      PossibleObjectPositions:
+      - Position: {x: -11.75, y: 1.66, z: -15.93}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 6.05, y: 1.66, z: -15.93}
+        Rotation: {x: 0, y: 81.911, z: -50.557, w: 1}
+      - Position: {x: 12.21, y: 4.44, z: 8.48}
+        Rotation: {x: 0, y: 0, z: 0, w: 1}
+      - Position: {x: 17.62, y: 4.44, z: 8.48}
+        Rotation: {x: -42.739, y: 62.942, z: 19.12, w: 1}

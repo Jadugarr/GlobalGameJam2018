@@ -1,119 +1,115 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-public enum EventTypes
+namespace Events
 {
-	
-}
+    /// <summary>
+    /// Singleton event manager.
+    /// </summary>
+    public class EventManager
+    {
+        #region Delegates/Events
 
-/// <summary>
-/// Singleton event manager.
-/// </summary>
-public class EventManager
-{
-	#region Delegates/Events
+        public delegate void EventHandler(IEvent evt);
 
-	public delegate void EventHandler(IEvent evt);
+        #endregion
 
-	#endregion
+        #region Öffentliche Felder
 
-	#region Öffentliche Felder
+        private static EventManager instance = new EventManager();
+        private Dictionary<EventTypes, List<EventHandler>> callbacks = new Dictionary<EventTypes, List<EventHandler>>();
 
-	private static EventManager instance = new EventManager();
-	private Dictionary<EventTypes, List<EventHandler>> callbacks = new Dictionary<EventTypes, List<EventHandler>>();
+        #endregion
 
-	#endregion
+        #region Eigenschaften
 
-	#region Eigenschaften
+        /// <summary>
+        /// Gets the instance of the EventManager.
+        /// </summary>
+        /// <value>The instance.</value>
+        public static EventManager Instance
+        {
+            get
+            {
+                return EventManager.instance;
+            }
+        }
 
-	/// <summary>
-	/// Gets the instance of the EventManager.
-	/// </summary>
-	/// <value>The instance.</value>
-	public static EventManager Instance
-	{
-		get
-		{
-			return EventManager.instance;
-		}
-	}
+        #endregion
 
-	#endregion
+        #region Private Konstruktoren
 
-	#region Private Konstruktoren
-	
-	/// <summary>
-	/// Initializes a new instance of the <see cref="EventManager"/> class.
-	/// </summary>
-	private EventManager(){}
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EventManager"/> class.
+        /// </summary>
+        private EventManager() { }
 
-	#endregion
+        #endregion
 
-	#region Öffentliche Methoden
+        #region Öffentliche Methoden
 
-	/// <summary>
-	/// Registers and EventHandler to a specific event.
-	/// </summary>
-	/// <param name="eventType">Event type.</param>
-	/// <param name="handler">Handler.</param>
-	public void RegisterForEvent(EventTypes eventType, EventHandler method)
-	{
-		List<EventHandler> eventCallbacks = null;
+        /// <summary>
+        /// Registers and EventHandler to a specific event.
+        /// </summary>
+        /// <param name="eventType">Event type.</param>
+        /// <param name="handler">Handler.</param>
+        public void RegisterForEvent(EventTypes eventType, EventHandler method)
+        {
+            List<EventHandler> eventCallbacks = null;
 
-		if (this.callbacks.TryGetValue(eventType, out eventCallbacks) == true) 
-		{
-			eventCallbacks.Add(method);
-		}
-		else 
-		{
-			eventCallbacks = new List<EventHandler>();
-			eventCallbacks.Add(method);
-			this.callbacks.Add(eventType, eventCallbacks);
-		}
-	}
+            if (this.callbacks.TryGetValue(eventType, out eventCallbacks) == true)
+            {
+                eventCallbacks.Add(method);
+            }
+            else
+            {
+                eventCallbacks = new List<EventHandler>();
+                eventCallbacks.Add(method);
+                this.callbacks.Add(eventType, eventCallbacks);
+            }
+        }
 
-	/// <summary>
-	/// Removes the given method from the specified event. If there are no methods for the specified event, this method does nothing.
-	/// </summary>
-	/// <param name="EventType">Event type.</param>
-	/// <param name="method">Method.</param>
-	public void RemoveFromEvent(EventTypes eventType, EventHandler method)
-	{
-		List<EventHandler> eventCallbacks = null;
+        /// <summary>
+        /// Removes the given method from the specified event. If there are no methods for the specified event, this method does nothing.
+        /// </summary>
+        /// <param name="EventType">Event type.</param>
+        /// <param name="method">Method.</param>
+        public void RemoveFromEvent(EventTypes eventType, EventHandler method)
+        {
+            List<EventHandler> eventCallbacks = null;
 
-		if (this.callbacks.TryGetValue(eventType, out eventCallbacks) == true) 
-		{
-			eventCallbacks.Remove(method);
-		}
-		else 
-		{
-			return;
-		}
-	}
+            if (this.callbacks.TryGetValue(eventType, out eventCallbacks) == true)
+            {
+                eventCallbacks.Remove(method);
+            }
+            else
+            {
+                return;
+            }
+        }
 
-	/// <summary>
-	/// Fires the given event. If there are no registered methods for this event, this method will do nothing.
-	/// </summary>
-	/// <param name="eventType">Event type.</param>
-	/// <param name="evt">Evt.</param>
-	public void FireEvent(EventTypes eventType, IEvent evt)
-	{
-		List<EventHandler> eventCallbacks = null;
+        /// <summary>
+        /// Fires the given event. If there are no registered methods for this event, this method will do nothing.
+        /// </summary>
+        /// <param name="eventType">Event type.</param>
+        /// <param name="evt">Evt.</param>
+        public void FireEvent(EventTypes eventType, IEvent evt)
+        {
+            List<EventHandler> eventCallbacks = null;
 
-		if (this.callbacks.TryGetValue(eventType, out eventCallbacks) == true) 
-		{
-			for (int i = 0; i < eventCallbacks.Count; i++) 
-			{
-				EventHandler method = eventCallbacks[i];
-				method(evt);
-			}
-		}
-		else 
-		{
-			return;
-		}
-	}
+            if (this.callbacks.TryGetValue(eventType, out eventCallbacks) == true)
+            {
+                for (int i = 0; i < eventCallbacks.Count; i++)
+                {
+                    EventHandler method = eventCallbacks[i];
+                    method(evt);
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
 
-	#endregion
+        #endregion
+    }
 }
