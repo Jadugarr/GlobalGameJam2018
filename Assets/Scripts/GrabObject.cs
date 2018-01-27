@@ -23,7 +23,7 @@ public class GrabObject : MonoBehaviour {
 	}
 
 	void Update(){
-		if (Input.GetMouseButtonDown (0)) {
+		if (!Input.GetMouseButtonDown (0) && !mouseReleased) {
 			mouseReleased = true;
 		}
 	}
