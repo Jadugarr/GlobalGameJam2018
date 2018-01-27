@@ -2,7 +2,7 @@
 using Events;
 
 namespace Triggers.SpecificTriggers{
-	public class Cube1Trigger : TriggerComponent {
+	public class Cube2Trigger : TriggerComponent {
 
 		public override void Activate()
 		{

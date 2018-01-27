@@ -109,6 +109,7 @@ public class GrabObject : MonoBehaviour {
 	}
 
 	private void sendInput(){
+		Debug.Log("Fire Grabbed Event");
 		eventManager.FireEvent(EventTypes.SendGrabbed, new SendGrabbedEvent(true));
 	}
 }
