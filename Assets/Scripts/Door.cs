@@ -21,7 +21,7 @@ public class Door : MonoBehaviour
 	{
 	    if (state == DoorState.Opening)
 	    {
-	        if (rotationHelper.rotation.y >= -0.65)
+	        if (rotationHelper.localRotation.y >= -0.65)
 	        {
 	            rotationHelper.Rotate(-Vector3.up * openingSpeed * Time.deltaTime);
 	        }
@@ -32,7 +32,7 @@ public class Door : MonoBehaviour
         }
         else if (state == DoorState.Closing)
 	    {
-	        if (rotationHelper.rotation.y <= 0.0)
+	        if (rotationHelper.localRotation.y <= 0.0)
 	        {
 	            rotationHelper.Rotate(Vector3.up * openingSpeed * Time.deltaTime);
 	        }
