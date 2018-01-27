@@ -1,0 +1,134 @@
+fileFormatVersion: 2
+guid: 77b7dd363bb60dd4480c35d4b745ee6f
+timeCreated: 1517010671
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Griff klein
+    100004: Griff lang
+    100006: Knauf
+    100008: Scharnier
+    100010: Scharnier 1
+    100012: Scharnier001
+    100014: Schreibtisch body
+    100016: Schublade gross
+    100018: Schublade gross 1
+    100020: Schublade klein
+    100022: Schublade klein 1
+    100024: Schublade lang
+    100026: Schublade lang 1
+    100028: Schublade mit Knauf
+    400000: //RootNode
+    400002: Griff klein
+    400004: Griff lang
+    400006: Knauf
+    400008: Scharnier
+    400010: Scharnier 1
+    400012: Scharnier001
+    400014: Schreibtisch body
+    400016: Schublade gross
+    400018: Schublade gross 1
+    400020: Schublade klein
+    400022: Schublade klein 1
+    400024: Schublade lang
+    400026: Schublade lang 1
+    400028: Schublade mit Knauf
+    2300000: Griff klein
+    2300002: Griff lang
+    2300004: Knauf
+    2300006: Scharnier 1
+    2300008: Scharnier001
+    2300010: Schreibtisch body
+    2300012: Schublade gross 1
+    2300014: Schublade klein 1
+    2300016: Schublade lang 1
+    3300000: Griff klein
+    3300002: Griff lang
+    3300004: Knauf
+    3300006: Scharnier 1
+    3300008: Scharnier001
+    3300010: Schreibtisch body
+    3300012: Schublade gross 1
+    3300014: Schublade klein 1
+    3300016: Schublade lang 1
+    4300000: Schreibtisch body
+    4300002: Scharnier
+    4300004: Scharnier001
+    4300006: Schublade gross
+    4300008: Knauf
+    4300010: Griff lang
+    4300012: Schublade lang
+    4300014: Schublade klein
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
