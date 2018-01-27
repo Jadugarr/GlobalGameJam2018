@@ -47,7 +47,6 @@ public class SpawnObjectController : MonoBehaviour
         {
             PositionData chosenPosition;
             List<PositionData> possiblePositions = new List<PositionData>(positionConfigData.PossibleObjectPositions);
-            int currentTries = 0;
 
             do
             {

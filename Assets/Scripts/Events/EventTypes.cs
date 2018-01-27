@@ -4,5 +4,6 @@
     {
         RoomEntered,
         ObjectsSpawned,
+        SendTerminalInput,
     }
 }
