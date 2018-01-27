@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtons : MonoBehaviour {
 
 	public void StartGamePlayerOne() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Walking");
 	}
 
 	public void StartGamePlayerTwo() {
