@@ -7,22 +7,40 @@ public class Clock : MonoBehaviour
 
     public TextMesh textMesh;
     public float timeLeft;
+    private bool fired;
 
 	// Use this for initialization
 	void Start ()
 	{
-	    timeLeft = 60 * 3 + 5;
+	    fired = false;
 	    textMesh.text = "00:00";
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	    timeLeft -= Time.deltaTime;
+	    if (!fired)
+	    {
+	        timeLeft -= Time.deltaTime;
 
-	    int minutes = (int) timeLeft / 60;
-	    int seconds = (int) (timeLeft - (minutes * 60));
+	        int minutes = (int) timeLeft / 60;
+	        int seconds = (int) (timeLeft - (minutes * 60));
 
-	    textMesh.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+	        textMesh.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+	        if (timeLeft <= 0)
+	        {
+	            OnTimerDown();
+	            fired = true;
+
+	            textMesh.text = "00:00";
+	        }
+	    }
 	}
+
+    void OnTimerDown()
+    {
+
+        Debug.Log("Timer fired!");
+    }
 }
