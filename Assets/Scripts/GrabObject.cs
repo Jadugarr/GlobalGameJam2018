@@ -78,6 +78,7 @@ public class GrabObject : MonoBehaviour {
 
 			if(Input.GetKeyDown(KeyCode.E) && hasButton){
 				Debug.Log("Button on interactable object triggered");
+				buttonOfInteractable.GetComponent<InteractableObject>().ButtonPressed();
 			}
 
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
