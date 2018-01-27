@@ -1,0 +1,36 @@
+﻿using UnityEngine;
+using Events;
+
+namespace Triggers.SpecificTriggers{
+	public class Cube2Trigger : TriggerComponent {
+
+		public override void Activate()
+		{
+			base.Activate();
+		}
+
+		public override void Deactivate()
+		{
+			base.Deactivate();
+		}
+					
+		protected override void AddEventListeners()
+		{
+			eventManager.RegisterForEvent(EventTypes.SendGrabbed, OnGrabbed);
+		}
+					
+		protected override void RemoveEventListeners()
+		{
+			eventManager.RemoveFromEvent (EventTypes.SendGrabbed, OnGrabbed);
+		}
+					
+		private void OnGrabbed(IEvent eventData){
+			SendGrabbedEvent grabbedEvent = (SendGrabbedEvent)eventData;
+			
+			if (grabbedEvent.Grabbed) {
+				Debug.Log("do something");
+				eventManager.FireEvent (EventTypes.TriggerActivated, new TriggerActivatedEvent (TriggerId));
+			}
+		}
+	}
+}

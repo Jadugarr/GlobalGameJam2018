@@ -478,7 +478,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63a39cca4da2804bb4c6752fe8c4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlighted: 0
 --- !u!114 &222135119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,7 +801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63a39cca4da2804bb4c6752fe8c4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlighted: 0
 --- !u!54 &703708619
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -874,8 +872,8 @@ GameObject:
   - component: {fileID: 780745901}
   - component: {fileID: 780745900}
   - component: {fileID: 780745898}
-  - component: {fileID: 780745905}
   - component: {fileID: 780745899}
+  - component: {fileID: 780745905}
   m_Layer: 8
   m_Name: Cube 2
   m_TagString: Trigger
@@ -894,7 +892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63a39cca4da2804bb4c6752fe8c4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlighted: 0
 --- !u!114 &780745899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,7 +904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isButton: 0
-  id: 1
+  id: 3
 --- !u!54 &780745900
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1003,10 +1000,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 780745897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d616f3436ffd31740be15d84ab98b6c4, type: 3}
+  m_Script: {fileID: 11500000, guid: bb032742fc57e9b46bac878f533b33a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 1
+  TriggerId: 3
 --- !u!1001 &1257507468
 Prefab:
   m_ObjectHideFlags: 0
@@ -1379,7 +1376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b63a39cca4da2804bb4c6752fe8c4af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlighted: 0
 --- !u!114 &1937273959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,9 +1387,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5601f78defeb8f94ab1c2cb07ce3922e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 0
+  TriggerId: 1
   objectsToShow: []
-  neededButtonId: 0
+  neededButtonId: 1
 --- !u!1 &2139969574
 GameObject:
   m_ObjectHideFlags: 0
