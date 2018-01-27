@@ -6,15 +6,18 @@ namespace Triggers.SpecificTriggers
     public class TestTerminalTrigger : TriggerComponent
     {
         [SerializeField] private string requiredInput;
+        [SerializeField] private TerminalComponent terminal;
 
         public override void Activate()
         {
             base.Activate();
+            terminal.Activate(true);
         }
 
         public override void Deactivate()
         {
             base.Deactivate();
+            terminal.Activate(false);
         }
 
         protected override void AddEventListeners()
