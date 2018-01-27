@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6c846e9c50784e44c83f46634c49fb15
+timeCreated: 1517080829
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: My Imaginary Friend
+  fontNames:
+  - My Imaginary Friend
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
