@@ -7,6 +7,7 @@
         SendTerminalInput,
         TriggerActivated,
         AllTriggersActivated,
-        SendGrabbed
+        SendGrabbed,
+        ButtonPressed
     }
 }
