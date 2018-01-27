@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonObjectTrigger : TriggerComponent
 {
-    [SerializeField] private GameObject objectToShow;
+    [SerializeField] private GameObject[] objectsToShow;
     [SerializeField] private int neededButtonId;
 
     public override void Activate()
@@ -33,7 +33,10 @@ public class ButtonObjectTrigger : TriggerComponent
 
         if (eventData.ButtonId == neededButtonId)
         {
-            objectToShow.SetActive(true);
+            foreach (GameObject obj in objectsToShow)
+            {
+                obj.SetActive(true);
+            }
             eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(TriggerId));
         }
     }

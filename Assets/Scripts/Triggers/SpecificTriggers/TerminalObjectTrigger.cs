@@ -3,13 +3,14 @@ using UnityEngine;
 
 namespace Triggers.SpecificTriggers
 {
-    public class TestTerminalTrigger : TriggerComponent
+    public class TerminalObjectTrigger : TriggerComponent
     {
         [SerializeField] private string requiredInput;
         [SerializeField] private TerminalComponent terminal;
         [SerializeField] private LogComponent logComponent;
         [SerializeField] private string successOutput;
         [SerializeField] private string failOutput;
+        [SerializeField] private GameObject[] objectsToShow;
 
         public override void Activate()
         {
@@ -42,6 +43,10 @@ namespace Triggers.SpecificTriggers
                 if (logComponent)
                 {
                     logComponent.DisplayText(successOutput.ToUpper(), true);
+                }
+                foreach (GameObject objectToShow in objectsToShow)
+                {
+                    objectToShow.SetActive(true);
                 }
                 eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(TriggerId));
             }
