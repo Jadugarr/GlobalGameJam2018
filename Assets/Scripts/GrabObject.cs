@@ -36,7 +36,7 @@ public class GrabObject : MonoBehaviour {
 
 		if (Physics.Raycast (transform.position, forward, out hit, viewDistance, layer) && !objectHold) {
 			hit.transform.gameObject.GetComponent<HighlightObject>().highlighted = true;
-			if (Input.GetMouseButtonDown (0) && mouseReleased && hit.transform.tag == "Interact") {
+			if (Input.GetMouseButtonDown (0) && mouseReleased) {
 				player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement();
 				mouseReleased = false;
 				objectHold = true;
@@ -47,6 +47,7 @@ public class GrabObject : MonoBehaviour {
 			} else {
 				//push button
 				door.GetComponent<Door>().state = DoorState.Opening;
+				GameObject button = hit.transform.gameObject; 
 			}
 		}
 
