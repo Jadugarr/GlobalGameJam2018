@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Events;
 
+[RequireComponent(typeof(HighlightObject))]
 public class InteractableObject : MonoBehaviour{
 	public bool isButton;
 	public int id;

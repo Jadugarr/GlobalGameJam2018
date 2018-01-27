@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe3c35d31af476ebc31dfecfc9a4dbe, type: 3}
   m_Name: TriggerConfiguration
   m_EditorClassIdentifier: 
-  TriggerIds: 0000000001000000
+  TriggerIds: 00000000
