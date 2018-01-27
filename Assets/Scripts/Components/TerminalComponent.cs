@@ -17,6 +17,7 @@ public class TerminalComponent : MonoBehaviour
     private string textPattern = "^[a-zA-Z]$";
     private string numberPattern = "^[0-9]$";
     private string activePattern;
+    private bool isActive;
 
     private void Awake()
     {
@@ -40,7 +41,19 @@ public class TerminalComponent : MonoBehaviour
             currentTimer = cursorInterval;
         }
 
-        CheckInput();
+        if (isActive)
+        {
+            CheckInput();
+        }
+    }
+
+    public void Activate(bool isActive)
+    {
+        this.isActive = isActive;
+        if (!isActive)
+        {
+            ResetText();
+        }
     }
 
     private void AddText(string text)
@@ -110,7 +123,9 @@ public class TerminalComponent : MonoBehaviour
 
     private void SendInput()
     {
-        eventManager.FireEvent(EventTypes.SendTerminalInput, new SendTerminalInputEvent(terminalTextField.text));
+        eventManager.FireEvent(EventTypes.SendTerminalInput,
+            new SendTerminalInputEvent(terminalTextField.text.Substring(0,
+                terminalTextField.text.Length - Convert.ToInt32(cursorDisplayed))));
         ResetText();
     }
 

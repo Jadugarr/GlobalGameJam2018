@@ -5,5 +5,7 @@
         RoomEntered,
         ObjectsSpawned,
         SendTerminalInput,
+        TriggerActivated,
+        AllTriggersActivated,
     }
 }
