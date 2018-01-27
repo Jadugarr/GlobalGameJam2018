@@ -7,6 +7,9 @@ namespace Triggers.SpecificTriggers
     {
         [SerializeField] private string requiredInput;
         [SerializeField] private TerminalComponent terminal;
+        [SerializeField] private LogComponent logComponent;
+        [SerializeField] private string successOutput;
+        [SerializeField] private string failOutput;
 
         public override void Activate()
         {
@@ -36,7 +39,18 @@ namespace Triggers.SpecificTriggers
 
             if (terminalInput.Input.ToLower() == requiredInput.ToLower())
             {
+                if (logComponent)
+                {
+                    logComponent.DisplayText(successOutput.ToUpper(), true);
+                }
                 eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(TriggerId));
+            }
+            else
+            {
+                if (logComponent)
+                {
+                    logComponent.DisplayText(failOutput.ToUpper(), false);
+                }
             }
         }
     }

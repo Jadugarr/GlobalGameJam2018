@@ -10,6 +10,7 @@ public class TerminalComponent : MonoBehaviour
     [SerializeField] private float cursorInterval;
     [SerializeField] private TerminalMode terminalMode;
     [SerializeField] private int maxTextLength;
+    [SerializeField] private int terminalId;
 
     private EventManager eventManager = EventManager.Instance;
     private float currentTimer = 0f;
@@ -125,7 +126,7 @@ public class TerminalComponent : MonoBehaviour
     {
         eventManager.FireEvent(EventTypes.SendTerminalInput,
             new SendTerminalInputEvent(terminalTextField.text.Substring(0,
-                terminalTextField.text.Length - Convert.ToInt32(cursorDisplayed))));
+                terminalTextField.text.Length - Convert.ToInt32(cursorDisplayed)), terminalId));
         ResetText();
     }
 
