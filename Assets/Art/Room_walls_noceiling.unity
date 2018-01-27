@@ -743,56 +743,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
-    - target: {fileID: 4782996266525290, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782996266525290, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782996266525290, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782996266525290, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4007429178343638, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0.35677674
-      objectReference: {fileID: 0}
-    - target: {fileID: 4007429178343638, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.24706307
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 95540132795649100, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &293456975 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1030714781049976, guid: bb51c719ea0c85d42a9ee22429f0ee07,
-    type: 2}
-  m_PrefabInternal: {fileID: 293456974}
---- !u!95 &293456976
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 293456975}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 03d5253b1dc7a4648b14fec5ad2c0277, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &300856743
 Prefab:
   m_ObjectHideFlags: 0
