@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using Events;
 
 public class GrabObject : MonoBehaviour {
 
@@ -11,12 +12,15 @@ public class GrabObject : MonoBehaviour {
 	public GameObject player;
 	public int resetWait;
 	public GameObject door;
+	//public bool isbutton;
 
 	private bool objectHold;
 	private GameObject currentObject;
 	private Vector3 objectPosition;
 	private Quaternion objectRotation;
 	private bool mouseReleased;
+
+	private EventManager eventManager = EventManager.Instance;
 
 	void Start(){
 		objectHold = false;
@@ -64,6 +68,7 @@ public class GrabObject : MonoBehaviour {
 				//currentObject.transform.rotation = objectRotation;
 				StartCoroutine(ResetPosition(currentObject, objectPosition, objectRotation));
 				currentObject = null;
+				sendInput ();
 			}
 		}
 
@@ -82,5 +87,9 @@ public class GrabObject : MonoBehaviour {
 		yield return new WaitForSeconds (resetWait);
 		obj.transform.position = position;
 		obj.transform.rotation = rotation;
+	}
+
+	private void sendInput(){
+		eventManager.FireEvent(EventTypes.SendGrabbed, new SendGrabbedEvent(true));
 	}
 }
