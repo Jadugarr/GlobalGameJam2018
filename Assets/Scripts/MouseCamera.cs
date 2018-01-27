@@ -11,6 +11,8 @@ public class MouseCamera : MonoBehaviour {
     public float yaw = 0.0f;
     public float pitch = 0.0f;
 
+    public int pitchUpperBound, pitchLowerBound, yawLeftBound, yawRightBound;
+
     // Use this for initialization
     void Start ()
     {
@@ -23,8 +25,8 @@ public class MouseCamera : MonoBehaviour {
 	    yaw += speedH * Input.GetAxis("Mouse X");
 	    pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        yaw = Mathf.Clamp(yaw, -60, 60);
-	    pitch = Mathf.Clamp(pitch, -25, 75);
+        yaw = Mathf.Clamp(yaw, yawLeftBound, yawRightBound);
+	    pitch = Mathf.Clamp(pitch, pitchUpperBound, pitchLowerBound);
 
 	    transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
     }
