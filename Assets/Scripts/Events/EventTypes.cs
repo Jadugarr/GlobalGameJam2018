@@ -7,5 +7,6 @@
         SendTerminalInput,
         TriggerActivated,
         AllTriggersActivated,
+        ButtonPressed,
     }
 }
