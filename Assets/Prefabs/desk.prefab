@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4007429178343638}
+  - component: {fileID: 95534193630710400}
+  - component: {fileID: 114423922864467682}
   m_Layer: 0
   m_Name: Schublade klein
   m_TagString: Untagged
@@ -84,7 +86,6 @@ GameObject:
   - component: {fileID: 4031254635854300}
   - component: {fileID: 33420577753786292}
   - component: {fileID: 23489939268314280}
-  - component: {fileID: 95540132795649100}
   m_Layer: 0
   m_Name: Schublade klein 1
   m_TagString: Untagged
@@ -463,9 +464,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043148137076742}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.8245, y: 41.753708, z: 2.625246}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.0017452955, w: 0.9999985}
+  m_LocalPosition: {x: -0.69, y: 1.0100213, z: -3.556252}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4878886737753412}
   - {fileID: 4819466573824870}
@@ -476,7 +477,7 @@ Transform:
   - {fileID: 4509091532488600}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.2}
 --- !u!4 &4816983096765060
 Transform:
   m_ObjectHideFlags: 1
@@ -1061,19 +1062,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!95 &95540132795649100
+--- !u!95 &95534193630710400
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255030269798566}
+  m_GameObject: {fileID: 1030714781049976}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03d5253b1dc7a4648b14fec5ad2c0277, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1095,3 +1096,14 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114423922864467682
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1030714781049976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52344d5d82ae40878878cbfb688f5142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
