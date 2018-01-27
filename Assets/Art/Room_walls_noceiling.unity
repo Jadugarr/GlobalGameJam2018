@@ -759,9 +759,40 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4007429178343638, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.35677674
+      objectReference: {fileID: 0}
+    - target: {fileID: 4007429178343638, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.24706307
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 95540132795649100, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bb51c719ea0c85d42a9ee22429f0ee07, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &293456975 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1030714781049976, guid: bb51c719ea0c85d42a9ee22429f0ee07,
+    type: 2}
+  m_PrefabInternal: {fileID: 293456974}
+--- !u!95 &293456976
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 293456975}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03d5253b1dc7a4648b14fec5ad2c0277, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &300856743
 Prefab:
   m_ObjectHideFlags: 0
@@ -2270,6 +2301,7 @@ GameObject:
   - component: {fileID: 1175681959}
   - component: {fileID: 1175681958}
   - component: {fileID: 1175681957}
+  - component: {fileID: 1175681962}
   m_Layer: 8
   m_Name: Cube
   m_TagString: Trigger
@@ -2301,8 +2333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473e4a2ead8bbc04a9cf434f2cc44b07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isButton: 0
-  id: 0
+  isButton: 1
+  id: 10
 --- !u!114 &1175681958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2367,6 +2399,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1175681955}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1175681962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1175681955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e3193b8f91486e8276860416ba227c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerIds: 03000000
+  neededButtonId: 10
 --- !u!1 &1198393568 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: c7ed718f3b1b26a4a85b1981d9300812, type: 3}

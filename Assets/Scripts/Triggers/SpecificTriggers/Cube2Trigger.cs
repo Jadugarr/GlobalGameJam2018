@@ -4,9 +4,9 @@ using Events;
 namespace Triggers.SpecificTriggers{
 	public class Cube2Trigger : TriggerComponent {
 
-		public override void Activate()
+		public override void Activate(int activeId)
 		{
-			base.Activate();
+			base.Activate(activeId);
 		}
 
 		public override void Deactivate()
@@ -29,7 +29,7 @@ namespace Triggers.SpecificTriggers{
 			
 			if (grabbedEvent.Grabbed) {
 				Debug.Log("do something");
-				eventManager.FireEvent (EventTypes.TriggerActivated, new TriggerActivatedEvent (TriggerId));
+				eventManager.FireEvent (EventTypes.TriggerActivated, new TriggerActivatedEvent (activeId));
 			}
 		}
 	}
