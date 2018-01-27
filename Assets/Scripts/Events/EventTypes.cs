@@ -9,6 +9,7 @@
         AllTriggersActivated,
         SendGrabbed,
         ButtonPressed,
-        TriggersCollected
+        TriggersCollected,
+        BedButtonPressed
     }
 }
