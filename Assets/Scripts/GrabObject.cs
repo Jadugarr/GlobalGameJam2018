@@ -9,6 +9,7 @@ public class GrabObject : MonoBehaviour {
 	public LayerMask layer;
 	public int rotateSpeed;
 	public GameObject player;
+	public int resetWait;
 
 	private bool objectHold;
 	private GameObject currentObject;
@@ -64,8 +65,9 @@ public class GrabObject : MonoBehaviour {
 				player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().UnlockMovement ();
 				mouseReleased = false;
 				objectHold = false;
-				currentObject.transform.position = objectPosition;
-				currentObject.transform.rotation = objectRotation;
+				//currentObject.transform.position = objectPosition;
+				//currentObject.transform.rotation = objectRotation;
+				StartCoroutine(ResetPosition(currentObject, objectPosition, objectRotation));
 				currentObject = null;
 			}
 		}
@@ -78,5 +80,12 @@ public class GrabObject : MonoBehaviour {
 
 	void HighlightObject(){
 		
+	}
+
+	IEnumerator ResetPosition(GameObject obj, Vector3 position, Quaternion rotation){
+		obj.transform.position = new Vector3 (0,0,-5);
+		yield return new WaitForSeconds (resetWait);
+		obj.transform.position = position;
+		obj.transform.rotation = rotation;
 	}
 }

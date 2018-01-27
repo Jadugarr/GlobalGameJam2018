@@ -332,6 +332,7 @@ MonoBehaviour:
     m_Bits: 256
   rotateSpeed: 100
   player: {fileID: 610426762}
+  resetWait: 1
 --- !u!1 &547839580
 GameObject:
   m_ObjectHideFlags: 0
