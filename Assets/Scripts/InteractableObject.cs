@@ -11,7 +11,7 @@ public class InteractableObject : MonoBehaviour{
 	private EventManager eventManager = EventManager.Instance;
 
 	public void ButtonPressed(){
-		Debug.Log ("button pressed");
+		Debug.Log ("button pressed!!!");
 		eventManager.FireEvent (EventTypes.ButtonPressed, new ButtonPressedEvent (id));
 	}
 }

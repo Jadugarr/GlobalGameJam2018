@@ -30,6 +30,7 @@ public class TriggerController : MonoBehaviour
         }
 
         eventManager.RegisterForEvent(EventTypes.TriggerActivated, OnTriggerActivated);
+        eventManager.FireEvent(EventTypes.TriggersCollected, null);
         ActivateNextTrigger();
     }
 
@@ -45,7 +46,7 @@ public class TriggerController : MonoBehaviour
             if (nextTrigger)
             {
                 currentTrigger = nextTrigger;
-                currentTrigger.Activate();
+                currentTrigger.Activate(nextTriggerId);
             }
             else
             {
@@ -63,7 +64,7 @@ public class TriggerController : MonoBehaviour
     {
         foreach (TriggerComponent triggerComponent in puzzleTriggers)
         {
-            if (triggerComponent.TriggerId == TriggerId)
+            if (triggerComponent.HasId(TriggerId))
             {
                 return triggerComponent;
             }
@@ -76,7 +77,7 @@ public class TriggerController : MonoBehaviour
     {
         TriggerActivatedEvent triggerActivatedEvent = (TriggerActivatedEvent) eventData;
 
-        if (currentTrigger.TriggerId == triggerActivatedEvent.TriggerId)
+        if (currentTrigger.HasId(triggerActivatedEvent.TriggerId))
         {
             currentTrigger.Deactivate();
             ActivateNextTrigger();
@@ -84,8 +85,7 @@ public class TriggerController : MonoBehaviour
         else
         {
             Debug.LogError("Somehow tried to activate a trigger that isn't active! Received: " +
-                           triggerActivatedEvent.TriggerId + "; Expected: " +
-                           currentTrigger.TriggerId);
+                           triggerActivatedEvent.TriggerId);
         }
     }
 }

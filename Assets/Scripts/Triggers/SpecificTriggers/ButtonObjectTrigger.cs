@@ -7,9 +7,9 @@ public class ButtonObjectTrigger : TriggerComponent
     [SerializeField] private GameObject[] objectsToShow;
     [SerializeField] private int neededButtonId;
 
-    public override void Activate()
+    public override void Activate(int activeId)
     {
-        base.Activate();
+        base.Activate(activeId);
     }
 
     public override void Deactivate()
@@ -37,7 +37,7 @@ public class ButtonObjectTrigger : TriggerComponent
             {
                 obj.SetActive(true);
             }
-            eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(TriggerId));
+            eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(activeId));
         }
     }
 }

@@ -5,9 +5,9 @@ namespace Triggers.SpecificTriggers
 {
     public class TestButtonTrigger : TriggerComponent
     {
-        public override void Activate()
+        public override void Activate(int activeid)
         {
-            base.Activate();
+            base.Activate(activeid);
         }
 
         public override void Deactivate()
@@ -29,7 +29,7 @@ namespace Triggers.SpecificTriggers
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(TriggerId));
+                eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(activeId));
             }
         }
     }
