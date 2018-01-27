@@ -3,18 +3,22 @@ using UnityEngine;
 
 namespace Triggers.SpecificTriggers
 {
-    public class TerminalObjectTrigger : TriggerComponent
+    public class SecondDoorTerminalLogTrigger : TriggerComponent
     {
         [SerializeField] private string requiredInput;
         [SerializeField] private TerminalComponent terminal;
         [SerializeField] private LogComponent logComponent;
         [SerializeField] private string successOutput;
         [SerializeField] private string failOutput;
-        [SerializeField] private GameObject[] objectsToShow;
 
-        public override void Activate(int activeid)
+        public void Start()
         {
-            base.Activate(activeid);
+            eventManager.RegisterForEvent(EventTypes.TriggersCollected, OnTriggersCollected);
+        }
+
+        public override void Activate(int activeId)
+        {
+            base.Activate(activeId);
             terminal.Activate(true);
         }
 
@@ -44,10 +48,6 @@ namespace Triggers.SpecificTriggers
                 {
                     logComponent.DisplayText(successOutput.ToUpper(), true);
                 }
-                foreach (GameObject objectToShow in objectsToShow)
-                {
-                    objectToShow.SetActive(true);
-                }
                 eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(activeId));
             }
             else
@@ -57,6 +57,12 @@ namespace Triggers.SpecificTriggers
                     logComponent.DisplayText(failOutput.ToUpper(), false);
                 }
             }
+        }
+
+        private void OnTriggersCollected(IEvent evtData)
+        {
+            eventManager.RemoveFromEvent(EventTypes.TriggersCollected, OnTriggersCollected);
+            gameObject.SetActive(false);
         }
     }
 }

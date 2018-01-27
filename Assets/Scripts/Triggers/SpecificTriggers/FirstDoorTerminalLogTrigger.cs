@@ -3,23 +3,23 @@ using UnityEngine;
 
 namespace Triggers.SpecificTriggers
 {
-    public class TerminalLogTrigger : TriggerComponent
+    public class FirstDoorTerminalLogTrigger : TriggerComponent
     {
-        [SerializeField] private string requiredInput;
+        [SerializeField] private RequiredTerminalInputData[] requiredInput;
         [SerializeField] private TerminalComponent terminal;
         [SerializeField] private LogComponent logComponent;
         [SerializeField] private string successOutput;
         [SerializeField] private string failOutput;
 
-        public override void Activate()
+        public override void Activate(int activeId)
         {
-            base.Activate();
+            base.Activate(activeId);
             terminal.Activate(true);
         }
 
         public override void Deactivate()
         {
-            base.Deactivate();
+            RemoveEventListeners();
             terminal.Activate(false);
         }
 
@@ -37,13 +37,13 @@ namespace Triggers.SpecificTriggers
         {
             SendTerminalInputEvent terminalInput = (SendTerminalInputEvent) eventData;
 
-            if (terminalInput.Input.ToLower() == requiredInput.ToLower())
+            if (terminalInput.Input.ToLower() == GetCurrentRequiredInput().ToLower())
             {
                 if (logComponent)
                 {
                     logComponent.DisplayText(successOutput.ToUpper(), true);
                 }
-                eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(TriggerId));
+                eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(activeId));
             }
             else
             {
@@ -52,6 +52,19 @@ namespace Triggers.SpecificTriggers
                     logComponent.DisplayText(failOutput.ToUpper(), false);
                 }
             }
+        }
+
+        private string GetCurrentRequiredInput()
+        {
+            foreach (RequiredTerminalInputData requiredTerminalInputData in requiredInput)
+            {
+                if (requiredTerminalInputData.TriggerId == activeId)
+                {
+                    return requiredTerminalInputData.RequiredInput;
+                }
+            }
+
+            return "";
         }
     }
 }

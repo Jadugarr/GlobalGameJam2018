@@ -4,12 +4,12 @@ using Events;
 namespace Triggers.SpecificTriggers{
 	public class Cube1Trigger : TriggerComponent {
 
-		public override void Activate()
-		{
-			base.Activate();
-		}
+	    public override void Activate(int activeId)
+	    {
+	        base.Activate(activeId);
+	    }
 
-		public override void Deactivate()
+        public override void Deactivate()
 		{
 			base.Deactivate();
 		}
@@ -28,7 +28,7 @@ namespace Triggers.SpecificTriggers{
 			SendGrabbedEvent grabbedEvent = (SendGrabbedEvent)eventData;
 			
 			if (grabbedEvent.Grabbed) {
-				eventManager.FireEvent (EventTypes.TriggerActivated, new TriggerActivatedEvent (TriggerId));
+				eventManager.FireEvent (EventTypes.TriggerActivated, new TriggerActivatedEvent (activeId));
 			}
 		}
 	}

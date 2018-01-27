@@ -5,12 +5,27 @@ namespace Triggers
 {
     public class TriggerComponent : MonoBehaviour
     {
-        public int TriggerId;
+        public int[] TriggerIds;
+        protected int activeId;
 
         protected EventManager eventManager = EventManager.Instance;
 
-        public virtual void Activate()
+        public bool HasId(int triggerId)
         {
+            foreach (int id in TriggerIds)
+            {
+                if (triggerId == id)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public virtual void Activate(int activeId)
+        {
+            this.activeId = activeId;
             gameObject.SetActive(true);
             AddEventListeners();
         }
