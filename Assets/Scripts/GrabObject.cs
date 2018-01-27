@@ -12,7 +12,6 @@ public class GrabObject : MonoBehaviour {
 	public GameObject player;
 	public int resetWait;
 	public GameObject door;
-	//public bool isbutton;
 
 	private bool objectHold;
 	private GameObject currentObject;
@@ -39,19 +38,22 @@ public class GrabObject : MonoBehaviour {
 		RaycastHit hit = new RaycastHit ();
 
 		if (Physics.Raycast (transform.position, forward, out hit, viewDistance, layer) && !objectHold) {
-			hit.transform.gameObject.GetComponent<HighlightObject>().highlighted = true;
+			GameObject interactableObject = hit.transform.gameObject;
+
+			interactableObject.GetComponent<HighlightObject>().highlighted = true;
+			bool isButton = interactableObject.GetComponent<InteractableObject> ().isButton;
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
-				player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement();
-				mouseReleased = false;
-				objectHold = true;
-				currentObject = hit.transform.gameObject;
-				objectPosition = currentObject.transform.position;
-				objectRotation = currentObject.transform.rotation;
-				HoldObject ();
-			} else {
-				//push button
-				door.GetComponent<Door>().state = DoorState.Opening;
-				GameObject button = hit.transform.gameObject; 
+				if (!isButton) {
+					player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement ();
+					mouseReleased = false;
+					objectHold = true;
+					currentObject = hit.transform.gameObject;
+					objectPosition = currentObject.transform.position;
+					objectRotation = currentObject.transform.rotation;
+					HoldObject ();
+				} else {
+					interactableObject.GetComponent<InteractableObject> ().ButtonPressed ();
+				}
 			}
 		}
 

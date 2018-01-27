@@ -357,6 +357,10 @@ Prefab:
       propertyPath: state
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1886141275889338, guid: 00000314f0d84214db2d52aee8c3dd21, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00000314f0d84214db2d52aee8c3dd21, type: 2}
   m_IsPrefabParent: 0
@@ -373,9 +377,11 @@ GameObject:
   - component: {fileID: 222135114}
   - component: {fileID: 222135113}
   - component: {fileID: 222135118}
+  - component: {fileID: 222135119}
+  - component: {fileID: 222135120}
   m_Layer: 8
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,6 +479,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlighted: 0
+--- !u!114 &222135119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222135112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473e4a2ead8bbc04a9cf434f2cc44b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isButton: 1
+  id: 0
+--- !u!114 &222135120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 222135112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5601f78defeb8f94ab1c2cb07ce3922e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TriggerId: 0
+  objectToShow: {fileID: 209565953}
+  neededButtonId: 0
 --- !u!4 &410297216 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4923919368549926, guid: 00000314f0d84214db2d52aee8c3dd21,
@@ -697,6 +730,7 @@ GameObject:
   - component: {fileID: 703708619}
   - component: {fileID: 703708618}
   - component: {fileID: 703708620}
+  - component: {fileID: 703708622}
   m_Layer: 8
   m_Name: Cube 1
   m_TagString: Trigger
@@ -795,7 +829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d616f3436ffd31740be15d84ab98b6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 0
+  TriggerId: 2
 --- !u!224 &703708621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -814,6 +848,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.33, y: 1.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &703708622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 703708614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473e4a2ead8bbc04a9cf434f2cc44b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isButton: 0
+  id: 2
 --- !u!1 &780745897
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +875,7 @@ GameObject:
   - component: {fileID: 780745900}
   - component: {fileID: 780745898}
   - component: {fileID: 780745905}
+  - component: {fileID: 780745899}
   m_Layer: 8
   m_Name: Cube 2
   m_TagString: Trigger
@@ -847,6 +895,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlighted: 0
+--- !u!114 &780745899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 780745897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 473e4a2ead8bbc04a9cf434f2cc44b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isButton: 0
+  id: 1
 --- !u!54 &780745900
 Rigidbody:
   m_ObjectHideFlags: 0
