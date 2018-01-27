@@ -10,6 +10,7 @@ public class GrabObject : MonoBehaviour {
 	public int rotateSpeed;
 	public GameObject player;
 	public int resetWait;
+	public GameObject door;
 
 	private bool objectHold;
 	private GameObject currentObject;
@@ -35,7 +36,7 @@ public class GrabObject : MonoBehaviour {
 
 		if (Physics.Raycast (transform.position, forward, out hit, viewDistance, layer) && !objectHold) {
 			hit.transform.gameObject.GetComponent<HighlightObject>().highlighted = true;
-			if (Input.GetMouseButtonDown (0) && mouseReleased) {
+			if (Input.GetMouseButtonDown (0) && mouseReleased && hit.transform.tag == "Interact") {
 				player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement();
 				mouseReleased = false;
 				objectHold = true;
@@ -43,21 +44,14 @@ public class GrabObject : MonoBehaviour {
 				objectPosition = currentObject.transform.position;
 				objectRotation = currentObject.transform.rotation;
 				HoldObject ();
+			} else {
+				//push button
+				door.GetComponent<Door>().state = DoorState.Opening;
 			}
 		}
 
 		if(objectHold){
 			HoldObject ();
-
-			//rotate object when q or e pressed
-			/*
-			if (Input.GetKey (KeyCode.Q)) {
-				currentObject.transform.Rotate (Vector3.up * rotateSpeed);
-			}
-
-			if (Input.GetKey (KeyCode.E)) {
-				currentObject.transform.Rotate (-Vector3.up * rotateSpeed);
-			}*/
 
 			currentObject.transform.Rotate (new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotateSpeed);
 
