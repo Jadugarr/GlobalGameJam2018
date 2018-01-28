@@ -8,9 +8,14 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip buttonSound;
     public AudioClip spookySound;
+    public AudioClip terminalButtonSound;
+    public AudioClip radioSound;
+    public AudioClip pickUpSound;
 
-    public AudioSource behindPlayerSource;
-    public AudioSource inFrontOfPlayerSource;
+    public AudioSource playerBackSource;
+    public AudioSource playerFrontSource;
+    public AudioSource radioSource;
+    public AudioSource terminalSource;
 
     private static AudioManager instance = new AudioManager();
     private EventManager eventManager = EventManager.Instance;
@@ -31,16 +36,34 @@ public class AudioManager : MonoBehaviour
         eventManager.RegisterForEvent(EventTypes.AllTriggersActivated, PlayFinalSound);
 	}
 
+    public void PlayTerminalButtonSound()
+    {
+        terminalSource.clip = terminalButtonSound;
+        terminalSource.Play();
+    }
+
+    public void PlayRadioSound()
+    {
+        radioSource.clip = radioSound;
+        radioSource.Play();
+    }
+
+    public void PlayPickUpSound()
+    {
+        playerFrontSource.clip = pickUpSound;
+        playerFrontSource.Play();
+    }
+
     public void PlayButtonSound()
     {
-        inFrontOfPlayerSource.clip = buttonSound;
-        inFrontOfPlayerSource.Play();
+        playerFrontSource.clip = buttonSound;
+        playerFrontSource.Play();
     }
 
     public void PlaySpookyPlayerSound()
     {
-        behindPlayerSource.clip = spookySound;
-        behindPlayerSource.Play();
+        playerBackSource.clip = spookySound;
+        playerBackSource.Play();
     }
 
     public void PlayFinalSound(IEvent e)
