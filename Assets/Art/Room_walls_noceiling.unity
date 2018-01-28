@@ -1595,6 +1595,21 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.43299052
       objectReference: {fileID: 0}
+    - target: {fileID: 114264548844754742, guid: afd5b95a562eaf346aff19860ab2fd94,
+        type: 2}
+      propertyPath: textFieldRenderer
+      value: 
+      objectReference: {fileID: 652011423}
+    - target: {fileID: 114264548844754742, guid: afd5b95a562eaf346aff19860ab2fd94,
+        type: 2}
+      propertyPath: negativeMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 56f77b9e2029fb24fa320cac5fcb2cfd, type: 2}
+    - target: {fileID: 114264548844754742, guid: afd5b95a562eaf346aff19860ab2fd94,
+        type: 2}
+      propertyPath: positiveMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: f9f74cf49a411c94b820702fcdea161f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: afd5b95a562eaf346aff19860ab2fd94, type: 2}
   m_IsPrefabParent: 0
@@ -1606,6 +1621,11 @@ Transform:
 --- !u!82 &652011422 stripped
 AudioSource:
   m_PrefabParentObject: {fileID: 82927876530520618, guid: afd5b95a562eaf346aff19860ab2fd94,
+    type: 2}
+  m_PrefabInternal: {fileID: 652011420}
+--- !u!23 &652011423 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 23508534358305262, guid: afd5b95a562eaf346aff19860ab2fd94,
     type: 2}
   m_PrefabInternal: {fileID: 652011420}
 --- !u!82 &656761540 stripped

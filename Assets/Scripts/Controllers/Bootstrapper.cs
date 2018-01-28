@@ -11,6 +11,6 @@ public class Bootstrapper : MonoBehaviour
     {
         Configurations.PositioningConfiguration = positioningConfiguration;
         Configurations.TriggerConfiguration = triggerConfiguration;
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MainMenu");
     }
 }
