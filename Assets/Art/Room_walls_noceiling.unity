@@ -1790,6 +1790,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114177195717791730, guid: 3840ac4fd984cf040b5e6985706ebdad,
+        type: 2}
+      propertyPath: symbolRenderer
+      value: 
+      objectReference: {fileID: 2082413268}
+    - target: {fileID: 114177195717791730, guid: 3840ac4fd984cf040b5e6985706ebdad,
+        type: 2}
+      propertyPath: secondSymbol
+      value: 
+      objectReference: {fileID: 2100000, guid: 40d46890347b84a4487a6d17d1b3b5d0, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3840ac4fd984cf040b5e6985706ebdad, type: 2}
   m_IsPrefabParent: 0
@@ -4157,10 +4167,15 @@ Prefab:
     - target: {fileID: 2300000, guid: 7d57363e161da674daa56ea05b921878, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: bd919bdd682ff504191094a3dddee8ce, type: 2}
+      objectReference: {fileID: 2100000, guid: 1efa04d5a3e0dd945a135eca423316b7, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d57363e161da674daa56ea05b921878, type: 3}
   m_IsPrefabParent: 0
+--- !u!23 &2082413268 stripped
+MeshRenderer:
+  m_PrefabParentObject: {fileID: 2300000, guid: 7d57363e161da674daa56ea05b921878,
+    type: 3}
+  m_PrefabInternal: {fileID: 2082413267}
 --- !u!1001 &2119115164
 Prefab:
   m_ObjectHideFlags: 0
