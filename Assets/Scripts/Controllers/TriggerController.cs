@@ -9,8 +9,10 @@ public class TriggerController : MonoBehaviour
     [SerializeField] private TriggerConfiguration triggerConfiguration;
     [SerializeField] private MeshRenderer symbolRenderer;
     [SerializeField] private Material secondSymbol;
+    [SerializeField] private GameObject soulWordObject;
+    [SerializeField] private Material thirdSymbol;
 
-    private Dictionary<int, Action> additionalHackyEvents = new Dictionary<int, Action>();
+    private Dictionary<int, Action[]> additionalHackyEvents = new Dictionary<int, Action[]>();
 
     private EventManager eventManager = EventManager.Instance;
     private int currentTriggerIndex = -1;
@@ -19,7 +21,8 @@ public class TriggerController : MonoBehaviour
 
     public void Awake()
     {
-        additionalHackyEvents.Add(1, SwitchToSecondSymbol);
+        additionalHackyEvents.Add(1, new Action[] {SwitchToSecondSymbol, DisplaySoul});
+        additionalHackyEvents.Add(2, new Action[] {SwitchToThirdSymbol});
 
         GameObject[] triggers = GameObject.FindGameObjectsWithTag("Trigger");
 
@@ -86,7 +89,10 @@ public class TriggerController : MonoBehaviour
 
         if (additionalHackyEvents.ContainsKey(triggerActivatedEvent.TriggerId))
         {
-            additionalHackyEvents[triggerActivatedEvent.TriggerId]();
+            foreach (Action additionalHackyEvent in additionalHackyEvents[triggerActivatedEvent.TriggerId])
+            {
+                additionalHackyEvent();
+            }
         }
 
         if (currentTrigger.HasId(triggerActivatedEvent.TriggerId))
@@ -104,5 +110,15 @@ public class TriggerController : MonoBehaviour
     private void SwitchToSecondSymbol()
     {
         symbolRenderer.material = secondSymbol;
+    }
+
+    private void SwitchToThirdSymbol()
+    {
+        symbolRenderer.material = thirdSymbol;
+    }
+
+    private void DisplaySoul()
+    {
+        soulWordObject.SetActive(true);
     }
 }
