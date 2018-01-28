@@ -24,8 +24,9 @@ public class GameController : MonoBehaviour
 
             if (currentTimer >= fadeOutTime)
             {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
                 PlayerPrefs.SetInt(PlayerPrefConstants.PlayerId, (int)playerType);
-                PlayerPrefs.SetString(PlayerPrefConstants.EndText, "You weren't able to escape!");
                 SceneManager.LoadScene("FinalScreen");
             }
         }
@@ -36,10 +37,18 @@ public class GameController : MonoBehaviour
     public void Awake()
     {
         eventManager.RegisterForEvent(EventTypes.TimeOut, OnTimeOut);
+        eventManager.RegisterForEvent(EventTypes.NiggaFuckedUp, OnFuckedUp);
     }
 
     private void OnTimeOut(IEvent evtData)
     {
         isFading = true;
+        PlayerPrefs.SetString(PlayerPrefConstants.EndText, "You weren't able to escape in time!");
+    }
+
+    private void OnFuckedUp(IEvent evtData)
+    {
+        isFading = true;
+        PlayerPrefs.SetString(PlayerPrefConstants.EndText, "You failed too many times...");
     }
 }

@@ -11,6 +11,7 @@
         ButtonPressed,
         TriggersCollected,
         BedButtonPressed,
-        TimeOut
+        TimeOut,
+        NiggaFuckedUp
     }
 }

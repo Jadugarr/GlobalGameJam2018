@@ -10,9 +10,13 @@ namespace Triggers.SpecificTriggers
         [SerializeField] private LogComponent logComponent;
         [SerializeField] private string successOutput;
         [SerializeField] private string failOutput;
+        [SerializeField] private int triesRemaining;
+
+        private int triesLeft;
 
         public override void Activate(int activeId)
         {
+            triesLeft = triesRemaining;
             base.Activate(activeId);
             terminal.Activate(true);
         }
@@ -47,9 +51,15 @@ namespace Triggers.SpecificTriggers
             }
             else
             {
+                triesLeft--;
                 if (logComponent)
                 {
-                    logComponent.DisplayText(failOutput.ToUpper(), false);
+                    logComponent.DisplayText(triesLeft + " " + failOutput.ToUpper(), false);
+                }
+
+                if (triesLeft <= 0)
+                {
+                    eventManager.FireEvent(EventTypes.NiggaFuckedUp, null);
                 }
             }
         }
