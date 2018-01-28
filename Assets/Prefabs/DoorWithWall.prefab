@@ -91,6 +91,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4923919368549926}
+  - component: {fileID: 114420004214974408}
   m_Layer: 0
   m_Name: DoorWithWall
   m_TagString: Untagged
@@ -523,8 +524,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingSpeed: 50
-  state: 2
+  state: 1
   rotationHelper: {fileID: 4811479606187790}
+--- !u!114 &114420004214974408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1363376815858950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252415a2463714f488bd29c911c4d055, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136669782823617242
 CapsuleCollider:
   m_ObjectHideFlags: 1
