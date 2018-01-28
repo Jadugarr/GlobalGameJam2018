@@ -8,8 +8,8 @@ public class MainMenuButtons : MonoBehaviour {
 	}
 
 	public void StartGamePlayerTwo() {
-
-	}
+	    SceneManager.LoadScene("GuideScene");
+    }
 
 	public void OpenInstructions() {
 
