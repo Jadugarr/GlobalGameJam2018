@@ -548,6 +548,24 @@ Prefab:
     - {fileID: 9500000, guid: b3b810cb80aa95546a43f675c703771e, type: 3}
   m_ParentPrefab: {fileID: 100100000, guid: b3b810cb80aa95546a43f675c703771e, type: 3}
   m_IsPrefabParent: 0
+--- !u!1 &237113024 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1731550954313832, guid: 6fc2089e7846cd644a910c5c84465940,
+    type: 2}
+  m_PrefabInternal: {fileID: 812373999}
+--- !u!114 &237113025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 237113024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3bc2ffd3195412e8c0010c6b19cadd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerConfiguration: {fileID: 11400000, guid: 68e64c755fca2a3418730ee20bc32763,
+    type: 2}
 --- !u!1 &237403365 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b3b810cb80aa95546a43f675c703771e, type: 3}
@@ -1565,6 +1583,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114066661032705880, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79,
+        type: 2}
+      propertyPath: TriggerIds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066661032705880, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79,
+        type: 2}
+      propertyPath: requiredInput.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4414376204737730, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79, type: 2}
       propertyPath: m_LocalPosition.x
       value: 4.8765
@@ -1613,6 +1641,26 @@ Prefab:
     - target: {fileID: 4414376204737730, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.22766207
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066661032705880, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79,
+        type: 2}
+      propertyPath: TriggerIds.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066661032705880, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79,
+        type: 2}
+      propertyPath: requiredInput.Array.data[2].TriggerId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066661032705880, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79,
+        type: 2}
+      propertyPath: requiredInput.Array.data[2].RequiredInput
+      value: Guilt
+      objectReference: {fileID: 0}
+    - target: {fileID: 114066661032705880, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79,
+        type: 2}
+      propertyPath: requiredInput.Array.data[2].SuccessfulOutput
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f8d0a9388ff8ee34c8a60fcac3c0bf79, type: 2}
@@ -2106,7 +2154,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114333156677832598, guid: 6fc2089e7846cd644a910c5c84465940, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 6fc2089e7846cd644a910c5c84465940, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &812374000 stripped
@@ -2692,7 +2741,7 @@ MonoBehaviour:
   rotateSpeed: 300
   player: {fileID: 0}
   resetWait: 1
-  objectDistance: 0.4
+  objectDistance: 0.1
   audioManager: {fileID: 645156969}
 --- !u!1001 &1099443846
 Prefab:
