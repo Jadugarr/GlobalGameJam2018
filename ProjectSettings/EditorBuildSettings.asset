@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Walking.unity
     guid: df5b17e6b07fb7b46adb8ebb564e29ed
+  - enabled: 1
+    path: Assets/Scenes/FinalScreen.unity
+    guid: c1b6f88a22ea68743a4995078d238b3b
