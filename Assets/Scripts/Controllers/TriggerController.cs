@@ -11,6 +11,7 @@ public class TriggerController : MonoBehaviour
     [SerializeField] private Material secondSymbol;
     [SerializeField] private GameObject soulWordObject;
     [SerializeField] private Material thirdSymbol;
+    [SerializeField] private GameObject guiltWordObject;
 
     private Dictionary<int, Action[]> additionalHackyEvents = new Dictionary<int, Action[]>();
 
@@ -23,6 +24,7 @@ public class TriggerController : MonoBehaviour
     {
         additionalHackyEvents.Add(1, new Action[] {SwitchToSecondSymbol, DisplaySoul});
         additionalHackyEvents.Add(2, new Action[] {SwitchToThirdSymbol});
+        additionalHackyEvents.Add(4, new Action[] {DisplayGuilt});
 
         GameObject[] triggers = GameObject.FindGameObjectsWithTag("Trigger");
 
@@ -120,5 +122,10 @@ public class TriggerController : MonoBehaviour
     private void DisplaySoul()
     {
         soulWordObject.SetActive(true);
+    }
+
+    private void DisplayGuilt()
+    {
+        guiltWordObject.SetActive(true);
     }
 }
