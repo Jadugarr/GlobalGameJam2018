@@ -1,6 +1,5 @@
 ﻿using Events;
 using UnityEngine;
-using UnityEditor.Animations;
 
 public class OpenDrawerComponent : MonoBehaviour
 {
