@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5601f78defeb8f94ab1c2cb07ce3922e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 0
+  TriggerIds: 
   objectsToShow: []
   neededButtonId: 0
 --- !u!4 &410297216 stripped
@@ -724,12 +724,12 @@ GameObject:
   m_Component:
   - component: {fileID: 703708621}
   - component: {fileID: 703708617}
-  - component: {fileID: 703708616}
   - component: {fileID: 703708615}
   - component: {fileID: 703708619}
   - component: {fileID: 703708618}
   - component: {fileID: 703708620}
   - component: {fileID: 703708622}
+  - component: {fileID: 703708616}
   m_Layer: 8
   m_Name: Cube 1
   m_TagString: Trigger
@@ -771,8 +771,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &703708616
-SphereCollider:
+--- !u!65 &703708616
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -781,7 +781,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!33 &703708617
 MeshFilter:
@@ -827,7 +827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d616f3436ffd31740be15d84ab98b6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 2
+  TriggerIds: 
 --- !u!224 &703708621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb032742fc57e9b46bac878f533b33a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 3
+  TriggerIds: 
 --- !u!1001 &1257507468
 Prefab:
   m_ObjectHideFlags: 0
@@ -1387,7 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5601f78defeb8f94ab1c2cb07ce3922e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerId: 1
+  TriggerIds: 
   objectsToShow: []
   neededButtonId: 1
 --- !u!1 &2139969574

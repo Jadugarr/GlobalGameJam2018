@@ -50,6 +50,7 @@ public class GrabObject : MonoBehaviour {
 			bool isButton = interactableObject.GetComponent<InteractableObject> ().isButton;
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
 				if (!isButton) {
+					interactableObject.GetComponent<Collider>().enabled = false;
 					if(player != null){
 						player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement ();
 					} else{
@@ -87,6 +88,7 @@ public class GrabObject : MonoBehaviour {
 			}
 
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
+				currentObject.GetComponent<Collider>().enabled = true;
 				if(player != null){
 					player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().UnlockMovement ();
 				} else{
