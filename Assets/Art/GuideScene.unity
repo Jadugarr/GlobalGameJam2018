@@ -2314,6 +2314,7 @@ MonoBehaviour:
   player: {fileID: 0}
   resetWait: 1
   objectDistance: 0.4
+  audioManager: {fileID: 645156969}
 --- !u!1001 &1099443846
 Prefab:
   m_ObjectHideFlags: 0

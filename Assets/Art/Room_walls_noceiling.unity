@@ -5685,6 +5685,11 @@ Prefab:
       propertyPath: objectDistance
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 114865071888157748, guid: 7993526c4568e6d4fbc2684a29208d4f,
+        type: 2}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 1618759344}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7993526c4568e6d4fbc2684a29208d4f, type: 2}
   m_IsPrefabParent: 0

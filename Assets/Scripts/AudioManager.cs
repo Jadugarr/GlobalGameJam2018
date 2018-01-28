@@ -17,22 +17,23 @@ public class AudioManager : MonoBehaviour
     public AudioSource radioSource;
     public AudioSource terminalSource;
 
-    private static AudioManager instance = new AudioManager();
+    //private static AudioManager instance = new AudioManager();
     private EventManager eventManager = EventManager.Instance;
 
     // Singleton instance
+    /*
     public static AudioManager Instance
     {
         get
         {
             return AudioManager.instance;
         }
-    }
+    }*/
 
     // Use this for initialization
     void Start ()
 	{
-        PlaySpookyPlayerSound();
+        PlayPickUpSound();
         eventManager.RegisterForEvent(EventTypes.AllTriggersActivated, PlayFinalSound);
 	}
 

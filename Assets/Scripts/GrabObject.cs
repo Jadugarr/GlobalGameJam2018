@@ -13,6 +13,7 @@ public class GrabObject : MonoBehaviour {
 	public int resetWait = 1;
 	public float objectDistance = 1;
 
+	public AudioManager audioManager;
 	private bool objectHold;
 	private GameObject currentObject;
 	private Vector3 objectPosition;
@@ -50,6 +51,7 @@ public class GrabObject : MonoBehaviour {
 			bool isButton = interactableObject.GetComponent<InteractableObject> ().isButton;
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
 				if (!isButton) {
+					audioManager.PlayPickUpSound();
 					interactableObject.GetComponent<Collider>().enabled = false;
 					if(player != null){
 						player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement ();
