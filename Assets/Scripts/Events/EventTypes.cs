@@ -10,6 +10,7 @@
         SendGrabbed,
         ButtonPressed,
         TriggersCollected,
-        BedButtonPressed
+        BedButtonPressed,
+        TimeOut
     }
 }
