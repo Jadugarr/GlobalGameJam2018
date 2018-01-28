@@ -25,7 +25,6 @@ public class MouseCamera : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("is locked: " + isLocked);
         if(!isLocked){
             yaw += speedH * Input.GetAxis("Mouse X");
             pitch -= speedV * Input.GetAxis("Mouse Y");

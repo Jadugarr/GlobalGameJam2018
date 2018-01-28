@@ -56,7 +56,6 @@ public class GrabObject : MonoBehaviour {
 					if(player != null){
 						player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement ();
 					} else{
-						Debug.Log("lock mouse movement");
 						transform.GetComponent<MouseCamera>().LockMovement();
 					}
 					mouseReleased = false;
@@ -71,7 +70,6 @@ public class GrabObject : MonoBehaviour {
 							break;
 						}
 					}
-					Debug.Log("has button: " + hasButton);
 					HoldObject ();
 				} else {
 					interactableObject.GetComponent<InteractableObject> ().ButtonPressed ();
@@ -85,7 +83,6 @@ public class GrabObject : MonoBehaviour {
 			currentObject.transform.Rotate (new Vector3(-Input.GetAxis("Mouse Y"), -Input.GetAxis("Mouse X"), 0) * Time.deltaTime * rotateSpeed);
 
 			if(Input.GetKeyDown(KeyCode.E) && hasButton){
-				Debug.Log("Button on interactable object triggered");
 				buttonOfInteractable.GetComponent<InteractableObject>().ButtonPressed();
 			}
 
@@ -94,7 +91,6 @@ public class GrabObject : MonoBehaviour {
 				if(player != null){
 					player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().UnlockMovement ();
 				} else{
-					Debug.Log("unlock mouse movement");
 					transform.GetComponent<MouseCamera>().UnlockMovement();
 				}
 				mouseReleased = false;
@@ -123,7 +119,6 @@ public class GrabObject : MonoBehaviour {
 	}
 
 	private void sendInput(){
-		Debug.Log("Fire Grabbed Event");
 		eventManager.FireEvent(EventTypes.SendGrabbed, new SendGrabbedEvent(true));
 	}
 }
