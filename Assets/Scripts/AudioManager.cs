@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip beepSound;
     public AudioClip terminalSuccessSound;
     public AudioClip mechanicalChangeSound;
+    public AudioClip heavyBreathingSound;
 
     public AudioSource playerBackSource;
     public AudioSource playerFrontSource;
@@ -99,6 +100,12 @@ public class AudioManager : MonoBehaviour
     public void PlayMechanicalChangeSound()
     {
         playerBackSource.clip = mechanicalChangeSound;
+        playerBackSource.Play();
+    }
+
+    public void PlayHeavyBreathingSound()
+    {
+        playerBackSource.clip = heavyBreathingSound;
         playerBackSource.Play();
     }
 

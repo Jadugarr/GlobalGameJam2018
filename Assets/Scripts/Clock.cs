@@ -79,5 +79,6 @@ public class Clock : MonoBehaviour
     void OnTimerDown()
     {
         EventManager.Instance.FireEvent(EventTypes.TimeOut, null);
+        audioManager.PlayHeavyBreathingSound();
     }
 }
