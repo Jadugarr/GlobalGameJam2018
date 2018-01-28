@@ -11,6 +11,8 @@ public class MouseCamera : MonoBehaviour {
     public float yaw = 0.0f;
     public float pitch = 0.0f;
 
+    private bool isLocked;
+
     public int pitchUpperBound, pitchLowerBound, yawLeftBound, yawRightBound;
 
     // Use this for initialization
@@ -18,16 +20,28 @@ public class MouseCamera : MonoBehaviour {
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        isLocked = false;
     }
 	
 	// Update is called once per frame
 	void Update () {
-	    yaw += speedH * Input.GetAxis("Mouse X");
-	    pitch -= speedV * Input.GetAxis("Mouse Y");
+        Debug.Log("is locked: " + isLocked);
+        if(!isLocked){
+            yaw += speedH * Input.GetAxis("Mouse X");
+            pitch -= speedV * Input.GetAxis("Mouse Y");
 
-        yaw = Mathf.Clamp(yaw, yawLeftBound, yawRightBound);
-	    pitch = Mathf.Clamp(pitch, pitchUpperBound, pitchLowerBound);
+            yaw = Mathf.Clamp(yaw, yawLeftBound, yawRightBound);
+            pitch = Mathf.Clamp(pitch, pitchUpperBound, pitchLowerBound);
 
-	    transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+            transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
+        }
+    }
+
+    public void UnlockMovement(){
+        isLocked = false;
+    }
+
+    public void LockMovement(){
+        isLocked = true;
     }
 }
