@@ -1,4 +1,6 @@
-﻿using Events;
+﻿using Constants;
+using Events;
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,6 +9,7 @@ public class GameController : MonoBehaviour
 {
     [SerializeField] private Image fadeOutImage;
     [SerializeField] private float fadeOutTime;
+    [SerializeField] private PlayerType playerType;
 
     private float currentTimer;
     private bool isFading;
@@ -21,6 +24,8 @@ public class GameController : MonoBehaviour
 
             if (currentTimer >= fadeOutTime)
             {
+                PlayerPrefs.SetInt(PlayerPrefConstants.PlayerId, (int)playerType);
+                PlayerPrefs.SetString(PlayerPrefConstants.EndText, "You weren't able to escape!");
                 SceneManager.LoadScene("FinalScreen");
             }
         }
