@@ -6,12 +6,12 @@ using Events;
 
 public class GrabObject : MonoBehaviour {
 
-	public int viewDistance;
+	public int viewDistance = 4;
 	public LayerMask layer;
-	public int rotateSpeed;
+	public int rotateSpeed = 100;
 	public GameObject player;
-	public int resetWait;
-	public GameObject door;
+	public int resetWait = 1;
+	public float objectDistance = 1;
 
 	private bool objectHold;
 	private GameObject currentObject;
@@ -50,7 +50,12 @@ public class GrabObject : MonoBehaviour {
 			bool isButton = interactableObject.GetComponent<InteractableObject> ().isButton;
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
 				if (!isButton) {
-					player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement ();
+					if(player != null){
+						player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().LockMovement ();
+					} else{
+						Debug.Log("lock mouse movement");
+						transform.GetComponent<MouseCamera>().LockMovement();
+					}
 					mouseReleased = false;
 					objectHold = true;
 					currentObject = hit.transform.gameObject;
@@ -82,7 +87,12 @@ public class GrabObject : MonoBehaviour {
 			}
 
 			if (Input.GetMouseButtonDown (0) && mouseReleased) {
-				player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().UnlockMovement ();
+				if(player != null){
+					player.transform.gameObject.GetComponent<RigidbodyFirstPersonController> ().UnlockMovement ();
+				} else{
+					Debug.Log("unlock mouse movement");
+					transform.GetComponent<MouseCamera>().UnlockMovement();
+				}
 				mouseReleased = false;
 				objectHold = false;
 				StartCoroutine(ResetPosition(currentObject, objectPosition, objectRotation));
@@ -98,7 +108,7 @@ public class GrabObject : MonoBehaviour {
 	}
 
 	void HoldObject(){
-		currentObject.transform.position = transform.position + transform.forward;
+		currentObject.transform.position = transform.position + transform.forward * objectDistance;
 	}
 
 	IEnumerator ResetPosition(GameObject obj, Vector3 position, Quaternion rotation){
