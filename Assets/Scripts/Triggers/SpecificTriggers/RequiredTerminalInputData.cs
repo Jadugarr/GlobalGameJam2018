@@ -7,11 +7,6 @@ namespace Triggers.SpecificTriggers
     {
         public int TriggerId;
         public string RequiredInput;
-
-        public RequiredTerminalInputData(int triggerId, string requiredInput)
-        {
-            TriggerId = triggerId;
-            RequiredInput = requiredInput;
-        }
+        public string SuccessfulOutput;
     }
 }

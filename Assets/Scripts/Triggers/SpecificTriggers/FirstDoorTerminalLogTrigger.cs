@@ -8,7 +8,6 @@ namespace Triggers.SpecificTriggers
         [SerializeField] private RequiredTerminalInputData[] requiredInput;
         [SerializeField] private TerminalComponent terminal;
         [SerializeField] private LogComponent logComponent;
-        [SerializeField] private string successOutput;
         [SerializeField] private string failOutput;
         [SerializeField] private int triesRemaining;
 
@@ -23,6 +22,7 @@ namespace Triggers.SpecificTriggers
 
         public override void Deactivate()
         {
+            
             RemoveEventListeners();
             terminal.Activate(false);
         }
@@ -40,12 +40,13 @@ namespace Triggers.SpecificTriggers
         private void OnTerminalInput(IEvent eventData)
         {
             SendTerminalInputEvent terminalInput = (SendTerminalInputEvent) eventData;
+            RequiredTerminalInputData currentData = GetCurrentRequiredData();
 
-            if (terminalInput.Input.ToLower() == GetCurrentRequiredInput().ToLower())
+            if (terminalInput.Input.ToLower() == currentData.RequiredInput.ToLower())
             {
                 if (logComponent)
                 {
-                    logComponent.DisplayText(successOutput.ToUpper(), true);
+                    logComponent.DisplayText(currentData.SuccessfulOutput.ToUpper(), true);
                 }
                 eventManager.FireEvent(EventTypes.TriggerActivated, new TriggerActivatedEvent(activeId));
             }
@@ -64,17 +65,17 @@ namespace Triggers.SpecificTriggers
             }
         }
 
-        private string GetCurrentRequiredInput()
+        private RequiredTerminalInputData GetCurrentRequiredData()
         {
             foreach (RequiredTerminalInputData requiredTerminalInputData in requiredInput)
             {
                 if (requiredTerminalInputData.TriggerId == activeId)
                 {
-                    return requiredTerminalInputData.RequiredInput;
+                    return requiredTerminalInputData;
                 }
             }
 
-            return "";
+            return null;
         }
     }
 }

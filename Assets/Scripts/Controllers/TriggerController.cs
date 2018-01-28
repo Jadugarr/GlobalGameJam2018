@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class TriggerController : MonoBehaviour
 {
+    [SerializeField] private TriggerConfiguration triggerConfiguration;
+
     private EventManager eventManager = EventManager.Instance;
-    private TriggerConfiguration triggerConfiguration;
     private int currentTriggerIndex = -1;
     private List<TriggerComponent> puzzleTriggers = new List<TriggerComponent>();
     private TriggerComponent currentTrigger;
 
     public void Awake()
     {
-        triggerConfiguration = Configurations.TriggerConfiguration;
         GameObject[] triggers = GameObject.FindGameObjectsWithTag("Trigger");
 
         foreach (GameObject trigger in triggers)
