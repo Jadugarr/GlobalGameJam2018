@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuButtons : MonoBehaviour {
 
 	public void StartGamePlayerOne() {
-        SceneManager.LoadScene("Walking");
+        SceneManager.LoadScene("Room_walls_noceiling");
 	}
 
 	public void StartGamePlayerTwo() {
-
-	}
+	    SceneManager.LoadScene("GuideScene");
+    }
 
 	public void OpenInstructions() {
 

@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Init.unity
     guid: 757d7298e68bbd342a5f522ac1bf7232
   - enabled: 1
-    path: Assets/Art/Room_walls_noceiling.unity
-    guid: 5c3d6c3ed014efa44b38c3b48ac9cef0
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 751c4b4ee3cc6564189e46e715f480a0
   - enabled: 1
-    path: Assets/Scenes/Walking.unity
-    guid: df5b17e6b07fb7b46adb8ebb564e29ed
+    path: Assets/Art/Room_walls_noceiling.unity
+    guid: 5c3d6c3ed014efa44b38c3b48ac9cef0
+  - enabled: 1
+    path: Assets/Art/GuideScene.unity
+    guid: 861aa7a694224a24885bdcbe18517c46
   - enabled: 1
     path: Assets/Scenes/FinalScreen.unity
     guid: c1b6f88a22ea68743a4995078d238b3b

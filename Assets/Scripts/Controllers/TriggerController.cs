@@ -1,19 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Events;
 using Triggers;
 using UnityEngine;
 
 public class TriggerController : MonoBehaviour
 {
+    [SerializeField] private TriggerConfiguration triggerConfiguration;
+    [SerializeField] private MeshRenderer symbolRenderer;
+    [SerializeField] private Material secondSymbol;
+
+    private Dictionary<int, Action> additionalHackyEvents = new Dictionary<int, Action>();
+
     private EventManager eventManager = EventManager.Instance;
-    private TriggerConfiguration triggerConfiguration;
     private int currentTriggerIndex = -1;
     private List<TriggerComponent> puzzleTriggers = new List<TriggerComponent>();
     private TriggerComponent currentTrigger;
 
     public void Awake()
     {
-        triggerConfiguration = Configurations.TriggerConfiguration;
+        additionalHackyEvents.Add(1, SwitchToSecondSymbol);
+
         GameObject[] triggers = GameObject.FindGameObjectsWithTag("Trigger");
 
         foreach (GameObject trigger in triggers)
@@ -77,6 +84,11 @@ public class TriggerController : MonoBehaviour
     {
         TriggerActivatedEvent triggerActivatedEvent = (TriggerActivatedEvent) eventData;
 
+        if (additionalHackyEvents.ContainsKey(triggerActivatedEvent.TriggerId))
+        {
+            additionalHackyEvents[triggerActivatedEvent.TriggerId]();
+        }
+
         if (currentTrigger.HasId(triggerActivatedEvent.TriggerId))
         {
             currentTrigger.Deactivate();
@@ -87,5 +99,10 @@ public class TriggerController : MonoBehaviour
             Debug.LogError("Somehow tried to activate a trigger that isn't active! Received: " +
                            triggerActivatedEvent.TriggerId);
         }
+    }
+
+    private void SwitchToSecondSymbol()
+    {
+        symbolRenderer.material = secondSymbol;
     }
 }
