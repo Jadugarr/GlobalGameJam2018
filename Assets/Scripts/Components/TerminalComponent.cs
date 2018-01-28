@@ -12,6 +12,8 @@ public class TerminalComponent : MonoBehaviour
     [SerializeField] private int maxTextLength;
     [SerializeField] private int terminalId;
 
+    public AudioManager AudioManager;
+
     private EventManager eventManager = EventManager.Instance;
     private float currentTimer = 0f;
     private bool cursorDisplayed = false;
@@ -61,6 +63,10 @@ public class TerminalComponent : MonoBehaviour
     {
         if (terminalTextField.text.Length - Convert.ToInt32(cursorDisplayed) < maxTextLength)
         {
+            if (AudioManager)
+            {
+                AudioManager.PlayTerminalButtonSound();
+            }
             if (cursorDisplayed)
             {
                 terminalTextField.text = terminalTextField.text.Insert(terminalTextField.text.Length - 1, text);
